@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 			write_string(url_patches[i].address, url_patches[i].url);
 		}
 
-        log("Nimble-Aquamarine patches completed!");
+        log("WWP-Innoverse patches completed!");
     }
 	
     if (mochaResult == MOCHA_RESULT_SUCCESS) {
