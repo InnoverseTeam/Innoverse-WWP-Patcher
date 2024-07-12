@@ -40,14 +40,14 @@ int main(int argc, char** argv)
     WHBLogUdpInit();
 #endif
 
-    log("Hello world from WWP-Innoverse!");
+    log("welcome to WWP-Innoverse!");
 
     VPADStatus status;
     VPADReadError error = VPAD_READ_SUCCESS;
     VPADRead(VPAD_CHAN_0, &status, 1, &error);
 
 	if (mochaResult != MOCHA_RESULT_SUCCESS) {
-		log("Nimble-Aquamarine patches failed!");
+		log("WWP-Innoverse patches failed!");
 	}
     else if (skipPatches())
     {
