@@ -8,8 +8,8 @@ typedef struct URL_Patch
 } URL_Patch;
 
 static  const URL_Patch url_patches[] = {
-    {0xE2299990, "nppl.innoverse.club"},
-    
+	{0xE2299990, "nppl.innoverse.club"},
+	
     //nim-boss .bss
     {0xE24B8A24, "https://nppl.innoverse.club/p01/policylist/1/1/UNK"}
 };

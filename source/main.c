@@ -18,12 +18,12 @@
 
 #include <string.h>
 #include <mocha/mocha.h>
-
 #include <vpad/input.h>
-#include <coreinit/mcp.h>
 
 #include "patches.h"
 #include "log.h"
+
+#include "checkInkayStatus.hpp"
 
 //thanks @Gary#4139 :p
 static void write_string(uint32_t addr, const char* str)
@@ -38,7 +38,7 @@ static void write_string(uint32_t addr, const char* str)
 
     if (remaining > 0) {
         uint8_t buf[4];
-        Mocha_IOSUKernelRead32(addr + num, (uint32_t*)&buf, 1);
+        Mocha_IOSUKernelRead32(addr + num, (uint32_t*)&buf);
 
         for (int i = 0; i < remaining; i++) {
             buf[i] = *(str + num + i);
@@ -50,36 +50,41 @@ static void write_string(uint32_t addr, const char* str)
 
 int main(int argc, char** argv)
 {
+	int mochaResult;
+	if ((mochaResult = Mocha_InitLibrary()) != MOCHA_RESULT_SUCCESS) {
+        log("Mocha_InitLibrary() failed with code %d", mochaResult);
+    }
+	
 #ifdef DEBUG
     WHBLogUdpInit();
 #endif
 
-    log("Welcome to Innoverse-WWP-Patches!");
+    log("Hellow to Innoverse-WWP-Patcher!!!");
 
     //check Gamepad input to maybe skip patches
     VPADStatus status;
     VPADReadError error = VPAD_READ_SUCCESS;
     VPADRead(VPAD_CHAN_0, &status, 1, &error);
 
-    if (status.hold & VPAD_BUTTON_ZL)
+	if (mochaResult != MOCHA_RESULT_SUCCESS) {
+		log("Innoverse-WWP-Patcher patches failed!");
+	}
+    else if (skipPatches())
     {
-        log("Innoverse-WWP-Patches patches skipped.");
+        log("Innoverse-WWP-Patcher patches skipped.");
     }
     else
     {
-        if (IOSUHAX_Open(NULL) >= 0) {
-            /* URL patch */
-            for (int i = 0; i < sizeof(url_patches) / sizeof(URL_Patch); i++) {
-                write_string(url_patches[i].address, url_patches[i].url);
-            }
+		/* URL patch */
+		for (int i = 0; i < sizeof(url_patches) / sizeof(URL_Patch); i++) {
+			write_string(url_patches[i].address, url_patches[i].url);
+		}
 
-            IOSUHAX_Close();
-            log("Innoverse-WWP-Patches patches succeeded!");
-        }
-        else
-        {
-            log("Innoverse-WWP-Patches patches failed!");
-        }
+        log("Innoverse-WWP-Patcher patches completed!");
+    }
+	
+    if (mochaResult == MOCHA_RESULT_SUCCESS) {
+        Mocha_DeInitLibrary();
     }
 
 #ifdef DEBUG
