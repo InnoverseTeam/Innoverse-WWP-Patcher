@@ -8,7 +8,7 @@
 #include "checkInkayStatus.hpp"
 
 static int CheckInkayJson(const char* jsonBuffer) {
-	// Parse the JSON string
+    // Parse the JSON string
     cJSON* root = cJSON_Parse(jsonBuffer);
 	
     if (root == NULL) {
@@ -42,7 +42,7 @@ static int CheckInkayJson(const char* jsonBuffer) {
 }
 
 bool skipPatches() {
-	std::string inkayConfigPath = "/plugins/config/innoversepatcher.json";
+    std::string inkayConfigPath = "/plugins/config/innoversepatcher.json";
 
     char environmentPathBuffer[0x100];
     MochaUtilsStatus status;
