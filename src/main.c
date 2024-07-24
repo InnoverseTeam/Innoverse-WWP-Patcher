@@ -50,10 +50,10 @@ static void write_string(uint32_t addr, const char* str)
 
 int main(int argc, char** argv)
 {
-	int mochaResult;
-	if ((mochaResult = Mocha_InitLibrary()) != MOCHA_RESULT_SUCCESS) {
-        log("Mocha_InitLibrary() failed with code %d", mochaResult);
-    }
+    int mochaResult;
+    if ((mochaResult = Mocha_InitLibrary()) != MOCHA_RESULT_SUCCESS) {
+    log("Mocha_InitLibrary() failed with code %d", mochaResult);
+}
 	
 #ifdef DEBUG
     WHBLogUdpInit();
@@ -75,10 +75,10 @@ int main(int argc, char** argv)
     }
     else
     {
-		/* URL patch */
-		for (int i = 0; i < sizeof(url_patches) / sizeof(URL_Patch); i++) {
-			write_string(url_patches[i].address, url_patches[i].url);
-		}
+	/* URL patch */
+	for (int i = 0; i < sizeof(url_patches) / sizeof(URL_Patch); i++) {
+		write_string(url_patches[i].address, url_patches[i].url);
+	}
 
         log("Innoverse-WWP-Patcher patches completed!");
     }
