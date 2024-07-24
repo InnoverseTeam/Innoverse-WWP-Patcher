@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "cJSON/cJSON.h"
+#include "cJSON.h"
 #include "log.h"
 #include "checkInkayStatus.hpp"
 
