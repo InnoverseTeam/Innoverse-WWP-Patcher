@@ -66,9 +66,9 @@ int main(int argc, char** argv)
     VPADReadError error = VPAD_READ_SUCCESS;
     VPADRead(VPAD_CHAN_0, &status, 1, &error);
 
-	if (mochaResult != MOCHA_RESULT_SUCCESS) {
-		log("Innoverse-WWP-Patcher patches failed!");
-	}
+    if (mochaResult != MOCHA_RESULT_SUCCESS) {
+	log("Innoverse-WWP-Patcher patches failed!");
+    }
     else if (skipPatches())
     {
         log("Innoverse-WWP-Patcher patches skipped.");
