@@ -19,7 +19,7 @@ include $(DEVKITPRO)/wut/share/wut_rules
 #-------------------------------------------------------------------------------
 TARGET		:=	30_nimble_innoverse
 BUILD		:=	build
-SOURCES		:=	src src/cJSON
+SOURCES		:=	src
 DATA		:=	data
 INCLUDES	:=	include
 
