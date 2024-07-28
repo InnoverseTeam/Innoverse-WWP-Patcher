@@ -8,7 +8,7 @@ $ git clone https://github.com/InnoverseTeam/Innoverse-WWP-Patches
 $ cd Innoverse-WWP-Patches
 ```
 
-### Compiling using Docker ?
+### Compiling using Docker
 ```bash
 $ docker build . -t innoverse-wwp-patches
 $ docker run -it --rm -v .:/app innoverse-wwp-patches
