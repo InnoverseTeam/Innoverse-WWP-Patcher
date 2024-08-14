@@ -1,15 +1,15 @@
-# Innoverse-WWP-Patches
+# Innoverse-WWP-Patcher
 Patcher of Innoverse for Wara Wara Plaza on Wii U.
 
 ### Setup
 - Install [git](https://git-scm.com/downloads), then clone this project.
 ```bash
-$ git clone https://github.com/InnoverseTeam/Innoverse-WWP-Patches
-$ cd Innoverse-WWP-Patches
+$ git clone https://github.com/InnoverseTeam/Innoverse-WWP-Patcher
+$ cd Innoverse-WWP-Patcher
 ```
 
 ### Compiling using Docker
 ```bash
-$ docker build . -t innoverse-wwp-patches
-$ docker run -it --rm -v .:/app innoverse-wwp-patches
+$ docker build . -t innoverse-wwp-patcher
+$ docker run -it --rm -v .:/app innoverse-wwp-patcher
 ```
