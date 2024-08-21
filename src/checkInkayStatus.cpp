@@ -10,35 +10,35 @@
 static int CheckInkayJson(const char* jsonBuffer) {
     // Parse the JSON string
     cJSON* root = cJSON_Parse(jsonBuffer);
-	
+    
     if (root == NULL) {
-	return -1;
+        // JSON parsing failed
+        return -1;
     } 
-	
-	// Get the "storageitems" object
-	cJSON* storageitems = cJSON_GetObjectItem(root, "storageitems");
-	
-	if (storageitems == NULL) {
-	    // Free the root node
-	    cJSON_Delete(root);
-		
-	    return -1;
-	}
-	
-	// Get the value of "connect_to_network" key
-	cJSON* connect_to_network = cJSON_GetObjectItem(storageitems, "connect_to_network");
-	
-	if (!cJSON_IsNumber(connect_to_network)) {
-		// Free the root node
-		cJSON_Delete(root);
-		
-		return -1;
-	} 
-	
-	// Free the root node
-	cJSON_Delete(root);
-	
-	return static_cast<bool>(connect_to_network->valueint);
+    
+    // Get the "storageitems" object
+    cJSON* storageitems = cJSON_GetObjectItem(root, "storageitems");
+    
+    if (storageitems == NULL) {
+        // "storageitems" not found, free the root node and return -1
+        cJSON_Delete(root);
+        return -1;
+    }
+    
+    // Get the value of "connect_to_network" key
+    cJSON* connect_to_network = cJSON_GetObjectItem(storageitems, "connect_to_network");
+    
+    if (!cJSON_IsNumber(connect_to_network)) {
+        // "connect_to_network" is not a number, free the root node and return -1
+        cJSON_Delete(root);
+        return -1;
+    } 
+    
+    // Free the root node
+    cJSON_Delete(root);
+    
+    // Return the boolean value of "connect_to_network"
+    return connect_to_network->valueint != 0;
 }
 
 bool skipPatches() {
