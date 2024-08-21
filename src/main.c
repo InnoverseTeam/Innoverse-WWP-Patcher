@@ -59,7 +59,7 @@ int main(int argc, char** argv)
     WHBLogUdpInit();
 #endif
 
-    log("Hellow to Innoverse-WWP-Patcher!!!");
+    log("Hello from Innoverse-WWP-Patcher.");
 
     //check Gamepad input to maybe skip patches
     VPADStatus status;
