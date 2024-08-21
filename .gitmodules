@@ -1,0 +1,3 @@
+[submodule "modules/cJSON"]
+	path = modules/cJSON
+	url = https://github.com/InnoverseTeam/cJSON.git
