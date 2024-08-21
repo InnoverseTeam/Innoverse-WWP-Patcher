@@ -9,4 +9,3 @@ bool skipPatches();
 #ifdef __cplusplus
 }
 #endif
-
