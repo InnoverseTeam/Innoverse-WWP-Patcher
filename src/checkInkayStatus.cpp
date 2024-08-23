@@ -41,7 +41,7 @@ static int CheckPatcherJson(const char* jsonBuffer) {
 }
 
 bool skipPatches() {
-	std::string patcherConfigPath = "/plugins/config/innoversepatcher.json";
+    std::string patcherConfigPath = "/plugins/config/innoversepatcher.json";
 
     char environmentPathBuffer[0x100];
     MochaUtilsStatus status;
