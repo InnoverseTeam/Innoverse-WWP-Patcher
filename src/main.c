@@ -23,7 +23,7 @@
 #include "patches.h"
 #include "log.h"
 
-#include "checkInkayStatus.hpp"
+#include "checkPatcherStatus.hpp"
 
 //thanks @Gary#4139 :p
 static void write_string(uint32_t addr, const char* str)
