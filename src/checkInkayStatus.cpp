@@ -5,9 +5,9 @@
 
 #include "cJSON/cJSON.h"
 #include "log.h"
-#include "checkInkayStatus.hpp"
+#include "checkPatcherStatus.hpp"
 
-static int CheckInkayJson(const char* jsonBuffer) {
+static int CheckPatcherJson(const char* jsonBuffer) {
     // Parse the JSON string
     cJSON* root = cJSON_Parse(jsonBuffer);
 	
@@ -41,7 +41,7 @@ static int CheckInkayJson(const char* jsonBuffer) {
 }
 
 bool skipPatches() {
-	std::string inkayConfigPath = "/plugins/config/innoversepatcher.json";
+	std::string patcherConfigPath = "/plugins/config/innoversepatcher.json";
 
     char environmentPathBuffer[0x100];
     MochaUtilsStatus status;
@@ -49,9 +49,9 @@ bool skipPatches() {
 		log("Failed to get the environment path. Error: %s", Mocha_GetStatusStr(status));
     }
 
-	log("Environment path is: %s, Innoverse-Patcher config path is %s", environmentPathBuffer, (environmentPathBuffer + inkayConfigPath).c_str());
+	log("Environment path is: %s, Innoverse-Patcher config path is %s", environmentPathBuffer, (environmentPathBuffer + patcherConfigPath).c_str());
 
-	FILE* configFile = fopen((environmentPathBuffer + inkayConfigPath).c_str(), "r");
+	FILE* configFile = fopen((environmentPathBuffer + patcherConfigPath).c_str(), "r");
 	if (configFile == NULL) {
 		log("Innoverse-Patcher config file does not exist");
 		return true;
@@ -75,7 +75,7 @@ bool skipPatches() {
 	
 	const char* const_buffer = buffer;
 	
-	int result = CheckInkayJson(const_buffer);
+	int result = CheckPatcherJson(const_buffer);
 	if (result == -1) {
 		log("Innoverse-Patcher config file is invalid");
 		return true;
