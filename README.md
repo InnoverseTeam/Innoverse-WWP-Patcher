@@ -13,3 +13,8 @@ $ cd Innoverse-WWP-Patcher
 $ docker build . -t innoverse-wwp-patcher
 $ docker run -it --rm -v .:/app innoverse-wwp-patcher
 ```
+
+# Credits
+- cedkeChat01 (Owner).
+- TraceEntertains (For CheckPatcherStatus).
+- DaveGamble (For cJSON Utils).
