@@ -9,6 +9,7 @@ $ cd Innoverse-WWP-Patcher
 ```
 
 ### Compiling using Docker
+- Download docker and devkitpro.
 ```bash
 $ docker build . -t innoverse-wwp-patcher
 $ docker run -it --rm -v .:/app innoverse-wwp-patcher
