@@ -59,7 +59,7 @@ int main(int argc, char** argv)
     WHBLogUdpInit();
 #endif
 
-    log("Hello from Innoverse-WWP-Patcher.");
+    log("Welcome to Innoverse-WWP-Patcher.");
 
     //check Gamepad input to maybe skip patches
     VPADStatus status;
@@ -80,7 +80,7 @@ int main(int argc, char** argv)
 		write_string(url_patches[i].address, url_patches[i].url);
 	}
 
-        log("Innoverse-WWP-Patcher patches completed!");
+        log("Innoverse-WWP-Patcher patches finished successfully!");
     }
 	
     if (mochaResult == MOCHA_RESULT_SUCCESS) {
