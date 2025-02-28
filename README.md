@@ -1,4 +1,6 @@
 # Innoverse-WWP-Patcher
+## ⚠️ It is recommended to use the new [Link3DS patcher](https://github.com/Link-3DS/Nebula) to use our Miiverse services. ⚠️
+- A fork of Pretendo Network Nimble
 - Patcher of Innoverse for Wara Wara Plaza on Wii U.
 
 ### Setup
